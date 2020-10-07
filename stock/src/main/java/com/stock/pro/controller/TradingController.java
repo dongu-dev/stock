@@ -6,15 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TradingController {
 	
+	// 매매일지 작성
 	@GetMapping(value="trading_log")
 	public String trading_log() {	
 		
 		return "trade/trading_log";
 	}
 	
-	@GetMapping(value="test")
-	public String test() {	
+	// 매매일지 문의
+	@GetMapping(value="trading_question")
+	public String trading_question() {	
 		
 		return "trade/trading_question";
+	}
+	
+	// 매매일지 공지사항
+	@GetMapping(value="trading_notice")
+	public String trading_notice() {	
+			
+		return "trade/trading_notice";
 	}
 }

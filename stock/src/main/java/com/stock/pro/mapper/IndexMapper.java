@@ -1,5 +1,5 @@
 package com.stock.pro.mapper;
 
-public class IndexMapper {
+public interface IndexMapper {
 
 }

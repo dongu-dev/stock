@@ -1,9 +1,10 @@
 /*
-* File name : trading.js
-* Author : swm
-* Date of issue : 2020.10.05
-* Update of revision : 2020.10.06
-*/
+ * File name : trading.js
+ * Author : swm
+ * Date of issue : 2020.10.05
+ * Update of revision : 2020.10.06
+ */
+
 //매수일, 매도일 입력시 보유일 자동계산
 function trading() {
 	var sdd = document.getElementById("buying_day").value;
@@ -21,7 +22,6 @@ function trading() {
 }
 
 
-// 
 $(document).ready(function(){
 	$('#save').click(function(){
 		$.ajax({
