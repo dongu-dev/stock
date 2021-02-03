@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!--
+* File name : footerJs.jsp
+* Author : swm
+* Date of issue : 2020.10.07
+* Update of revision : 
+-->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -55,27 +62,21 @@
 	                <table class="table table-bordered" id="dataTable" width="100%">
 	                  <thead>
 	                    <tr>
-	                      <th style="width: 10%">번호</th>
-	                      <th style="width: 75%">제목</th>
-	                      <th style="width: 15%">조회수</th>
+	                      <th style="width: 60%">제목</th>
+	                      <th style="width: 15%">작성자</th>
+	                      <th style="width: 10%">조회수</th>
+	                      <th style="width: 20%">등록날짜</th>
 	                    </tr>
 	                  </thead>
 	                  <tbody>
-	                    <tr>
-	                      <td>1</td>
-	                      <td>ㄱ</td>
-	                      <td>30</td>
-	                    </tr>
-	                    <tr>
-	                      <td>2</td>
-	                      <td>ㅎ</td>
-	                      <td>245</td>
-	                    </tr>
-	                    <tr>
-	                      <td>3</td>
-	                      <td>ㅋ</td>
-	                      <td>22</td>
-	                    </tr>
+	                    <c:forEach var="notice" items="${noticeList}">
+								<tr>
+									<td>${notice.notice_title}</td>
+									<td>${notice.notice_contents}</td>
+									<td>${notice.select_count}</td>
+									<td>${notice.regist_date}</td>
+								</tr>
+							</c:forEach>
 	                  </tbody>
 	                </table>
 	              </div>

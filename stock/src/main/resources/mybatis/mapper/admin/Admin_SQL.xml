@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stock.pro.mapper.AdminMapper">
+    <select id="notice_list" resultType="com.stock.pro.dto.AdminDto">
+    	SELECT 
+			notice_title
+			, notice_contents
+			, select_count
+			, regist_date
+		FROM notice_info
+    </select>
+    
+    <insert id="notice_regist" parameterType="com.stock.pro.dto.AdminDto">
+    	INSERT INTO
+    			notice_info (
+    					notice_title	
+    					, notice_contents
+    					, use_yn
+    					, regist_date
+    				) 
+    				values (
+    					#{notice_title}
+    					, #{notice_contents}
+    					, #{use_yn}
+    					, now()
+    				)
+    </insert>   
+</mapper>   

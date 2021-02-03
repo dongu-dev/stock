@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!--
+* File name : footerJs.jsp
+* Author : swm
+* Date of issue : 2020.10.07
+* Update of revision : 
+-->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,10 +46,15 @@
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-body">
-					<form action="notice_insert" method="post">
-						<input type="text" class="form-control" id="title" placeholder="제목을 입력하여 주세요" >
-						<br><textarea class="form-control" rows="10" id="summernote"></textarea>
-						<br><input type="submit" style="float: right;" class="btn btn-success" value="등록">
+					<form action="notice_regist" method="post">
+						<input type="text" class="form-control" name="notice_title" placeholder="제목을 입력하여 주세요" >
+						<br><textarea class="form-control" name="notice_contents" rows="10" id="summernote"></textarea>
+						<br>사용여부 : 
+						<select style="width: 15%" name="use_yn">
+							<option value="Y">Y</option>
+							<option value="N">N</option>
+						</select>
+						<input type="submit" style="float: right;" class="btn btn-success" value="등록">
 					</form>
 				</div>
 			</div>

@@ -1,29 +1,63 @@
+/*
+ * File name : AdminController.java
+ * Author : swm
+ * Date of issue : 2020.10.08
+ * Update of revision : 
+ */
+
 package com.stock.pro.controller;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.stock.pro.dto.AdminDto;
+import com.stock.pro.service.AdminServiceImpl;
 
 @Controller
 public class AdminController {
 	
-	// 공지사항 관리
+	@Autowired
+	private AdminServiceImpl adminServiceImpl;
+	
+	// 공지사항 관리 페이지 호출
 	@GetMapping(value="notice_management")
-	public String notice_management() {	
+	public ModelAndView notice_management() throws Exception {	
 		
-		return "admin/notice_management";
+		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> noticeListMap = adminServiceImpl.notice_list();
+		
+		mv.setViewName("admin/notice_management");		
+		mv.addObject("noticeList", noticeListMap.get("noticeList"));
+		
+		return mv;
 	}
 
-	// 공지사항 등록
+	// 공지사항 등록 페이지 호출
 	@GetMapping(value="notice_registration")
-	public String notice_registration() {	
+	public String notice_registration(Model model) throws Exception {	
 		
 		return "admin/notice_registration";
 	}
 	
-	// 공지 삽입
-	@PostMapping(value="notice_insert")
-	public void notice_insert() {
+	// 공지사항 등록 기능
+	@PostMapping(value="notice_regist")
+	public String notice_regist(AdminDto adminDto) throws Exception {
+		String notice_title = adminDto.getNotice_title();
+		String notice_contents = adminDto.getNotice_contents();
+		char use_yn = adminDto.getUse_yn();
 		
+		adminDto.setNotice_title(notice_title);
+		adminDto.setNotice_contents(notice_contents);
+		adminDto.setUse_yn(use_yn);
+		adminServiceImpl.notice_regist(adminDto);
+		
+		return "redirect:notice_management";
 	}
 }

@@ -19,6 +19,8 @@
 
 <!-- Custom styles for this template-->
 <link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="resources/css/login.css" rel="stylesheet">
+<link href="resources/css/signUp.css" rel="stylesheet">
 
 <!-- Custom styles for this page -->
 <link href="resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -27,3 +29,5 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
