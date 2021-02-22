@@ -7,7 +7,9 @@
 		
 		<jsp:include page="/WEB-INF/views/header.jsp" />
 		
-		<script src="resources/js/login.js"></script>
+		<link href="resources/css/signUp.css" rel="stylesheet">
+		
+		<script src="resources/js/member.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -22,15 +24,15 @@
 						</div>
 	                    <div class="form-group">
 	                       <label for="exampleInputEmail1">아이디</label>
-	                       <input type="id" name="id"  class="form-control" id="id" aria-describedby="emailHelp" placeholder="아이디를 입력해주세요.">
+	                       <input type="text" name="memberId"  class="form-control" id="id" aria-describedby="emailHelp" placeholder="아이디를 입력해주세요.">
 	                    </div>
 	                    <div class="form-group">
 	                       <label for="exampleInputEmail1">비밀번호</label>
-	                       <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="비밀번호를 입력해주세요.">
+	                       <input type="password" name="memberPassword" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="비밀번호를 입력해주세요.">
 	                    </div>
 	                    <div class="form-group">
 	                       <label for="exampleInputEmail1">이메일</label>
-	                       <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요.">
+	                       <input type="email" name="memberEmail"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요.">
 	                    </div>
 	                    <div class="col-md-12 text-center ">
 	                       <button id="regist" class=" btn btn-block mybtn btn-primary tx-tfm">등록하기</button>

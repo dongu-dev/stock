@@ -23,16 +23,16 @@ function trading() {
 
 
 $(document).ready(function(){
-	$('#save').click(function(){
+	$('#trade_save').click(function(){
 		$.ajax({
-			url:'/rest/login'
+			url:'/rest/tradeInfoSave'
 			, type:'POST'
-			, data:{id: inputId, pw: inputPw}
+			, data:{itemCode: item_code , buyingDay: buying_day, sellDay: sell_day, holdDay: hold_day, holdQuantity: hold_quantity, buyPrice: buy_price, sellPrice: sell_price, proLossPrice: pro_loss_price}
 			, success: function(data){
 				if(data == 'success'){
-					location.href='/index';
+					
 				} else{
-					$('#loginHelper').html("아이디 또는 비밀번호가 일치하지 않습니다.");
+				
 				}
 			}
 		})

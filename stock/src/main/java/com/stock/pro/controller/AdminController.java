@@ -49,13 +49,10 @@ public class AdminController {
 	// 공지사항 등록 기능
 	@PostMapping(value="notice_regist")
 	public String notice_regist(AdminDto adminDto) throws Exception {
-		String notice_title = adminDto.getNotice_title();
-		String notice_contents = adminDto.getNotice_contents();
-		char use_yn = adminDto.getUse_yn();
 		
-		adminDto.setNotice_title(notice_title);
-		adminDto.setNotice_contents(notice_contents);
-		adminDto.setUse_yn(use_yn);
+		adminDto.setNotice_title(adminDto.getNotice_title());
+		adminDto.setNotice_contents(adminDto.getNotice_contents());
+		adminDto.setUse_yn(adminDto.getUse_yn());
 		adminServiceImpl.notice_regist(adminDto);
 		
 		return "redirect:notice_management";

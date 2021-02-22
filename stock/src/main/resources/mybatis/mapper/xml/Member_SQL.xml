@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stock.pro.mapper.MemberMapper"> 
+    <select id="memberLogin" parameterType="com.stock.pro.dto.MemberDto" resultType="com.stock.pro.dto.MemberDto">
+    	SELECT 
+    		id as memberId
+    		, pw as memberPw
+    	FROM member
+    	WHERE id = #{memberId}
+    </select>
+    
+    <insert id="memberAdd" parameterType="com.stock.pro.dto.MemberDto">
+    	INSERT INTO member (
+    				id
+    				,pw
+    				,email
+    				,level
+    			) VALUES (
+    				#{memberId}
+    				,#{memberPw}
+    				,#{memberEmail}
+    				,'사용자'
+    			)
+    </insert>   
+</mapper>   

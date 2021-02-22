@@ -13,7 +13,8 @@
 		
 		<jsp:include page="/WEB-INF/views/header.jsp" />
 		
-		<script src="resources/js/login.js"></script>
+		<link href="resources/css/login.css" rel="stylesheet">
+		<script src="resources/js/member.js"></script>
 	</head>
 <body>
 	<div class="sidenav">
@@ -27,14 +28,16 @@
             <div class="login-form">
                <div class="form-group">
                    <label>아이디</label>
-                   <input type="text" class="form-control" placeholder="User Name">
+                   <input id="loginId" type="text" class="form-control" placeholder="아이디를 입력해주세요">
                </div>
                <div class="form-group">
                    <label>비밀번호</label>
-                   <input type="password" class="form-control" placeholder="Password">
+                   <input id="loginPw" type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
                </div>
-               <button id="login" type="submit" class="btn btn-black">로그인</button>
-               <button id="signUp" type="submit" class="btn btn-secondary">회원가입</button>
+               <button id="memberLogin" type="submit" class="col-md-12 col-sm-12 btn btn-black">로그인</button><br><br>
+               <button id="signUp" type="submit" class="col-md-3 col-sm-12 btn btn-secondary">회원가입</button>
+               <button id="memberInfoFind" type="submit" class="col-md-4 col-sm-12 btn btn-secondary">회원정보 찾기</button>
+               <button id="memberPwFind" type="submit" class="col-md-4 col-sm-12 btn btn-secondary">비밀번호 찾기</button>
             </div>
          </div>
       </div>

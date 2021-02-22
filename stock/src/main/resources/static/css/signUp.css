@@ -1,7 +1,6 @@
         body{
         padding-top:4.2rem;
 		padding-bottom:4.2rem;
-		background:rgba(0, 0, 0, 0.76);
         }
         a{
          text-decoration:none !important;
@@ -34,7 +33,7 @@
         
          .login-or {
          position: relative;
-         color: #aaa;
+         color: #fff;
          margin-top: 10px;
          margin-bottom: 10px;
          padding-top: 10px;

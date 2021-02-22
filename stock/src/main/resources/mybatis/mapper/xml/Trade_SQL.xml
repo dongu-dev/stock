@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stock.pro.mapper.TradeMapper">
+    <insert id="tradeInfoSave" parameterType="com.stock.pro.dto.TradeInfoDto">
+    	INSERT INTO
+    			trade_info (
+    					item_code	
+    					, trade_id
+    					, buying_day
+    					, sell_day
+    					, hold_day
+    					, hold_quantity
+    					, buy_price
+    					, sell_price
+    					, pro_loss_price
+    				) 
+    				values (
+    					#{itemCode}
+    					, #{itemCode}
+    					, #{buyingDay}
+    					, #{sellDay}
+    					, #{holdDay}
+    					, #{holdQuantity}
+    					, #{buyPrice}
+    					, #{sellPrice}
+    					, #{proLossPrice}
+    				)
+    </insert>   
+</mapper>   

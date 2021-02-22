@@ -104,7 +104,7 @@
 			                        </div>
 			                    </div>
 			                </div>
-			                <button class="btn btn-primary btn-icon-split" id="save" style="float: right;">
+			                <button class="btn btn-primary btn-icon-split" id="trade_save" style="float: right;">
 			                	<span class="text ">저장</span>
 			                </button>
 			            </div>`
