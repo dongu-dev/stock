@@ -16,11 +16,13 @@
     				,pw
     				,email
     				,level
+    				,name
     			) VALUES (
     				#{memberId}
     				,#{memberPw}
     				,#{memberEmail}
     				,'사용자'
+    				,#{memberName}
     			)
     </insert>   
 </mapper>   

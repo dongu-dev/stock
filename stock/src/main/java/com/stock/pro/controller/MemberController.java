@@ -35,14 +35,14 @@ public class MemberController {
 		return "member/signUp_page";
 	}
 	
-	// 회원정보 찾기 페이지 호출
+	// 아이디 찾기 페이지 호출
 	@GetMapping(value="memberInfoFind")
 	public String memberInfoFind() throws Exception {	
 		
 		return "member/memberInfoFind";
 	}
 	
-	// 회원정보 찾기 페이지 호출
+	// 비밀번호 찾기 페이지 호출
 	@GetMapping(value="memberPwFind")
 	public String memberPwFind() throws Exception {	
 		
@@ -61,6 +61,7 @@ public class MemberController {
 			memberDto.setMemberId(memberDto.getMemberId());
 			memberDto.setMemberPw(encryptPw);
 			memberDto.setMemberEmail(memberDto.getMemberEmail());
+			memberDto.setMemberName(memberDto.getMemberName());
 			memberServiceImpl.memberAdd(memberDto);
 			
 			return "success";
@@ -80,7 +81,6 @@ public class MemberController {
 		boolean pwdMatch = passwordEncoder.matches(memberDto.getMemberPw(), memberInfo.getMemberPw());
 		
 		if(pwdMatch) {
-			
 			session.setAttribute("memberId", memberInfo.getMemberId());
 			session.setAttribute("memberLevel", memberInfo.getMemberlevel());
 			
