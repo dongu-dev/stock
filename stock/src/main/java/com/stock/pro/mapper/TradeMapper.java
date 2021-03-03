@@ -9,5 +9,5 @@ import com.stock.pro.dto.TradeInfoDto;
 @Mapper
 public interface TradeMapper {
 	
-	void tradeInfoSave(TradeInfoDto tradeInfoDto) throws Exception;
+	void tradeInfoSave(TradeInfoDto tradeInfoDto);
 }

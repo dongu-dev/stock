@@ -19,8 +19,8 @@ import com.stock.pro.dto.AdminDto;
 public interface AdminMapper {
 	
 	//공지사항 리스트 호출
-	List<AdminDto> notice_list() throws Exception;
+	List<AdminDto> notice_list();
 	
 	// 공지사항 등록 기능
-	void notice_regist(AdminDto adminDto) throws Exception;
+	void notice_regist(AdminDto adminDto);
 }

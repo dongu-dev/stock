@@ -8,7 +8,7 @@ import com.stock.pro.dto.MemberDto;
 @Mapper
 public interface MemberMapper {
 	
-	public void memberAdd(MemberDto memberDto) throws Exception;
+	public void memberAdd(MemberDto memberDto);
 	
-	public MemberDto memberLogin(MemberDto memberDto) throws Exception;
+	public MemberDto memberLogin(MemberDto memberDto);
 }

@@ -12,6 +12,7 @@
 	<artifactId>stock</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>stock</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -59,6 +60,19 @@
 		    <groupId>org.mariadb.jdbc</groupId>
 		    <artifactId>mariadb-java-client</artifactId>
 		    <version>2.6.2</version>
+		</dependency>
+		
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>	
+        	<artifactId>spring-boot-starter-tomcat</artifactId>
+        	<scope>provided</scope>
+   		</dependency>
+		
+		<!-- 로깅처리하기 위한 @Slf4j 어노테이션 의존성 추가 -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.25</version>
 		</dependency>
 		
 		<dependency> 

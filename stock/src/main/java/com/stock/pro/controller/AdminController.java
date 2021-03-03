@@ -27,11 +27,17 @@ public class AdminController {
 	
 	// 공지사항 관리 페이지 호출
 	@GetMapping(value="notice_management")
-	public ModelAndView notice_management() throws Exception {	
+	public ModelAndView notice_management() {	
 		
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> noticeListMap = adminServiceImpl.notice_list();
+		Map<String, Object> noticeListMap = null;
+		
+		try {
+			noticeListMap = adminServiceImpl.notice_list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		mv.setViewName("admin/notice_management");		
 		mv.addObject("noticeList", noticeListMap.get("noticeList"));
@@ -41,19 +47,24 @@ public class AdminController {
 
 	// 공지사항 등록 페이지 호출
 	@GetMapping(value="notice_registration")
-	public String notice_registration(Model model) throws Exception {	
+	public String notice_registration(Model model) {	
 		
 		return "admin/notice_registration";
 	}
 	
 	// 공지사항 등록 기능
 	@PostMapping(value="notice_regist")
-	public String notice_regist(AdminDto adminDto) throws Exception {
+	public String notice_regist(AdminDto adminDto) {
 		
 		adminDto.setNotice_title(adminDto.getNotice_title());
 		adminDto.setNotice_contents(adminDto.getNotice_contents());
 		adminDto.setUse_yn(adminDto.getUse_yn());
-		adminServiceImpl.notice_regist(adminDto);
+		
+		try {
+			adminServiceImpl.notice_regist(adminDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return "redirect:notice_management";
 	}
