@@ -16,10 +16,12 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 	
+	@Override
 	public void memberAdd(MemberDto memberDto) throws Exception {
 		memberMapper.memberAdd(memberDto);
 	}
 	
+	@Override
 	public MemberDto memberLogin(MemberDto memberDto) throws Exception {
 		
 		MemberDto memberList = memberMapper.memberLogin(memberDto);

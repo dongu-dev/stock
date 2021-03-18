@@ -1,15 +1,15 @@
 package com.stock.pro.dto;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
 public class TradeInfoDto {
-
-	private String itemCode;
-	private Date buyingDay;
-	private Date sellDay;
+	
+	private String stockTitle;
+	private String stockCode;
+	private String tradeId;
+	private String buyingDay;
+	private String sellDay;
 	private String holdDay;
 	private int holdQuantity;
 	private int buyPrice;

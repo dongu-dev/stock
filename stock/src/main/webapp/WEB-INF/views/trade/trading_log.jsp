@@ -38,10 +38,13 @@
 
         <!-- Begin Page Content -->
 		<div class="container-fluid">
-
 			<!-- Page Heading -->
 			<h1 class="h3 mb-2 text-gray-800">매매일지 작성</h1>
-			<p class="mb-4">보유일을 제외한 나머지 값은 직접 입력하세요. 매도일 입력 후 저장하게 되면 "손익실현 현황 조회"에서 확인가능 하며, 입력 안할경우 "실시간 매매현황 조회" 메뉴에서 확인 가능합니다. </p>
+			<p class="mb-4">
+				<button class="btn btn-primary btn-icon-split" id="write" >
+			  		<span class="text">매매일지 설명 보기</span>
+				</button>
+			</p>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
@@ -52,10 +55,16 @@
                 <div class="table-responsive">
 			        <div class="card-body">
 			                <div class="row">
-			                    <div class="ccol-md-2 col-lg-4">
+			                    <div class="col-md-2 col-lg-3">
+			                        <div class="form-group">
+			                            <label class="control-label">종목코드</label>
+			                            <input type="text" class="form-control" id="stock_code" placeholder="종목명 입력시 자동적재" value="" readonly />
+			                        </div>
+			                    </div>
+			                    <div class="col-md-2 col-lg-3">
 			                        <div class="form-group">
 			                            <label class="control-label">종목명</label>
-			                            <input type="text" class="form-control" id="item_code" placeholder="종목명을 입력해주세요" />
+			                            <input type="text" class="form-control" id="stock_title" placeholder="종목명 입력 후 엔터(띄어쓰기 X)" onkeypress="stockTitle()" />
 			                        </div>
 			                    </div>
 			                    <div class="col-md-2 col-lg-2">
@@ -76,15 +85,15 @@
 			                            <input type="text" class="form-control" id="hold_day" placeholder="자동계산"/>
 			                        </div>
 			                    </div>
-			                    <div class="col-md-2 col-lg-2">
+			                    
+			                </div>
+			                <div class="row">
+			                	<div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
 			                            <label class="control-label">보유수량</label>
 			                            <input type="text" class="form-control" id="hold_quantity" numberonly="true" placeholder="단위(주)" />
 			                        </div>
 			                    </div>	
-			                </div>
-
-			                <div class="row">
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
 			                            <label class="control-label">매수가</label>
@@ -104,7 +113,7 @@
 			                        </div>
 			                    </div>
 			                </div>
-			                <button class="btn btn-primary btn-icon-split" id="trade_save" style="float: right;">
+			                <button class="btn btn-primary btn-icon-split" id="trade_save" style="float: right;" onclick="tradeSave();">
 			                	<span class="text ">저장</span>
 			                </button>
 			            </div>`

@@ -8,7 +8,7 @@
   
   // 천 단위 콤마(2020.09.29)
   function addComma(data) {
-  	return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   
   // Toggle the side navigation

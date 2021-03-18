@@ -184,9 +184,6 @@
 		                  <h6 class="m-0 font-weight-bold text-primary">내가 투자한 종목 현재가 보러가기</h6>
 		                </div>
 		                <div class="card-body">
-		                  <div class="text-center">
-		                  </div>
-		                  <p></p>
 		                  	<a target="_blank" rel="nofollow" href=""></a>
 		                </div>
 		              </div>

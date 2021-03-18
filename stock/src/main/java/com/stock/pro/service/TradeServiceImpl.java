@@ -6,13 +6,26 @@ import com.stock.pro.dto.TradeInfoDto;
 import com.stock.pro.mapper.TradeMapper;
 
 @Service
-public class TradeServiceImpl {
+public class TradeServiceImpl implements TradeService {
 	
 	@Autowired
 	TradeMapper tradeMapper;
 	
 	// 주식정보저장
-	public void tradeInfoSave(TradeInfoDto tradeInfoDto) throws Exception {
-		tradeMapper.tradeInfoSave(tradeInfoDto);
+	@Override
+	public int tradeInfoSave(TradeInfoDto tradeInfoDto) {
+		
+		int a = tradeMapper.tradeInfoSave(tradeInfoDto);
+		
+		return a;
+	}
+	
+	// 종목코드 가져오기
+	@Override
+	public String tradeGetCode(String stockName) {
+		
+		String tradeCode = tradeMapper.tradeGetCode(stockName);
+		
+		return tradeCode;
 	}
 }

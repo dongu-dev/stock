@@ -5,7 +5,10 @@ import com.stock.pro.dto.TradeInfoDto;
 public interface TradeService {
 	
 	// 주식정보저장
-	public void tradingInfoSave(TradeInfoDto tradeInfoDto);
+	public int tradeInfoSave(TradeInfoDto tradeInfoDto);
 	
+	// 종목코드 가져오기
+	public String tradeGetCode(String stockName);
+
 	
 }

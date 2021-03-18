@@ -1,14 +1,19 @@
 package com.stock.pro.controller;
 
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.stock.pro.dto.TradeInfoDto;
+import com.stock.pro.service.TradeServiceImpl;
 
 @Controller
 public class TradingController {
+	
+	@Autowired
+	private TradeServiceImpl tradeServiceImpl;
 	
 	// 매매일지 작성
 	@GetMapping(value="trading_log")
@@ -32,20 +37,31 @@ public class TradingController {
 	}
 	
 	// 주식정보값 등록
-	
 	@ResponseBody
-	@PostMapping(value="rest/tradeInfoSave")
-	public String tradingInfoSave(TradeInfoDto tradeInfoDto) {	
+	@PostMapping(value="tradeInfoSave")
+	public String tradeInfoSave(TradeInfoDto tradeInfoDto, HttpSession session) {	
 		
-		tradeInfoDto.setItemCode(tradeInfoDto.getItemCode());
-		tradeInfoDto.setBuyingDay(tradeInfoDto.getBuyingDay());
-		tradeInfoDto.setSellDay(tradeInfoDto.getSellDay());
-		tradeInfoDto.setHoldDay(tradeInfoDto.getHoldDay());
-		tradeInfoDto.setHoldQuantity(tradeInfoDto.getHoldQuantity());
-		tradeInfoDto.setBuyPrice(tradeInfoDto.getBuyPrice());
-		tradeInfoDto.setSellPrice(tradeInfoDto.getSellPrice());
-		tradeInfoDto.setProLossPrice(tradeInfoDto.getProLossPrice());
+		String tradeId = (String) session.getAttribute("memberId");
+		tradeInfoDto.setTradeId(tradeId);
 		
-		return "success";
+		int a = tradeServiceImpl.tradeInfoSave(tradeInfoDto);
+			
+		if(a == 1) {
+			return "success";
+		} else {
+			return "fail";
+		}
 	}
-}
+	
+	// 종목코드 가져오기
+	@ResponseBody
+	@PostMapping(value="tradeGetCode")
+	public String tradeGetCode(String stockName) {
+
+		System.out.println("stockName 값 => " + stockName);
+		
+		String stockCode = tradeServiceImpl.tradeGetCode(stockName);
+		
+		return stockCode;
+	}
+}	

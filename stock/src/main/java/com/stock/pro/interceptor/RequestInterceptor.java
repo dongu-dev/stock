@@ -10,8 +10,6 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.stock.pro.dto.MemberDto;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -26,10 +24,10 @@ public class RequestInterceptor implements HandlerInterceptor {
 
 		// 요청시 세션 가져오기
 		HttpSession session = request.getSession();
-		MemberDto memberdto = (MemberDto) session.getAttribute("memberId");
+		String memberId = (String) session.getAttribute("memberId");
 
 		// 세션값 확인
-		if (ObjectUtils.isEmpty(memberdto)) {
+		if (ObjectUtils.isEmpty(memberId)) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('로그인 정보가 비어있어 로그인페이지로 이동합니다.'); location.href='/';</script>");
@@ -37,6 +35,7 @@ public class RequestInterceptor implements HandlerInterceptor {
 
 			return false;
 		} else {
+			// 세션 값 유지 30분이상 안될 시 초기화
 			session.setMaxInactiveInterval(30 * 60);
 			return true;
 		}

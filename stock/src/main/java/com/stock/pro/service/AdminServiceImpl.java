@@ -26,6 +26,7 @@ public class AdminServiceImpl implements AdminService{
 	private AdminMapper adminMapper;
 	
 	// 공지 리스트
+	@Override
 	public Map<String, Object> notice_list() throws Exception {
 		
 		Map<String, Object> noticeListMap = new HashMap<String, Object> ();
@@ -37,6 +38,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	// 공지사항 등록 기능
+	@Override
 	public void notice_regist(AdminDto adminDto) throws Exception {
 		adminMapper.notice_regist(adminDto);
 	}

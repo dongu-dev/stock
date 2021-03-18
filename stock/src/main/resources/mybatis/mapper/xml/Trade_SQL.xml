@@ -5,7 +5,8 @@
     <insert id="tradeInfoSave" parameterType="com.stock.pro.dto.TradeInfoDto">
     	INSERT INTO
     			trade_info (
-    					item_code	
+    					stock_title
+    					, stock_code	
     					, trade_id
     					, buying_day
     					, sell_day
@@ -16,8 +17,9 @@
     					, pro_loss_price
     				) 
     				values (
-    					#{itemCode}
-    					, #{itemCode}
+    					#{stockTitle}
+    					, #{stockCode}
+    					, #{tradeId}
     					, #{buyingDay}
     					, #{sellDay}
     					, #{holdDay}
@@ -26,5 +28,12 @@
     					, #{sellPrice}
     					, #{proLossPrice}
     				)
-    </insert>   
+    </insert>
+    
+    <select id="tradeGetCode" parameterType="String" resultType="String">
+    	SELECT 
+    		stock_code AS stockCode
+		FROM stocks 
+		WHERE stock_name = #{stockName}
+    </select>
 </mapper>   

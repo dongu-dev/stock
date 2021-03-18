@@ -1,6 +1,7 @@
 package com.stock.pro.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.stock.pro.dto.TradeInfoDto;
@@ -9,5 +10,7 @@ import com.stock.pro.dto.TradeInfoDto;
 @Mapper
 public interface TradeMapper {
 	
-	void tradeInfoSave(TradeInfoDto tradeInfoDto);
+	int tradeInfoSave(TradeInfoDto tradeInfoDto);
+	
+	String tradeGetCode(String stockName);
 }
