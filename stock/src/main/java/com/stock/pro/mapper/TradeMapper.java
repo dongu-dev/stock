@@ -1,7 +1,6 @@
 package com.stock.pro.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.stock.pro.dto.TradeInfoDto;

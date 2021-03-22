@@ -9,24 +9,20 @@
     					, stock_code	
     					, trade_id
     					, buying_day
-    					, sell_day
-    					, hold_day
-    					, hold_quantity
+    					, buy_quantity
+    					, buy_unit_price
+    					, buy_fees
     					, buy_price
-    					, sell_price
-    					, pro_loss_price
     				) 
     				values (
     					#{stockTitle}
     					, #{stockCode}
     					, #{tradeId}
     					, #{buyingDay}
-    					, #{sellDay}
-    					, #{holdDay}
-    					, #{holdQuantity}
-    					, #{buyPrice}
-    					, #{sellPrice}
-    					, #{proLossPrice}
+						, #{buyQuantity}
+						, #{buyUnitPrice}
+						, #{buyFees}
+						, #{buyPrice}
     				)
     </insert>
     

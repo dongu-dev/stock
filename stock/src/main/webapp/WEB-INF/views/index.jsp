@@ -181,7 +181,7 @@
 		              <!-- Illustrations -->
 		              <div class="card shadow mb-4">
 		                <div class="card-header py-3">
-		                  <h6 class="m-0 font-weight-bold text-primary">내가 투자한 종목 현재가 보러가기</h6>
+		                  <h6 class="m-0 font-weight-bold text-primary">내가 투자한 종목 TOP5 현재가 보러가기</h6>
 		                </div>
 		                <div class="card-body">
 		                  	<a target="_blank" rel="nofollow" href=""></a>

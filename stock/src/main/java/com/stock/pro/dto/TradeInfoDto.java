@@ -9,10 +9,8 @@ public class TradeInfoDto {
 	private String stockCode;
 	private String tradeId;
 	private String buyingDay;
-	private String sellDay;
-	private String holdDay;
-	private int holdQuantity;
+	private int buyQuantity;
+	private int buyUnitPrice;
+	private int buyFees;
 	private int buyPrice;
-	private int sellPrice;
-	private int proLossPrice;
 }

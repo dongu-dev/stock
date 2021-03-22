@@ -39,7 +39,7 @@
         <!-- Begin Page Content -->
 		<div class="container-fluid">
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">매매일지 작성</h1>
+			<h1 class="h3 mb-2 text-gray-800">매매일지 작성(매수)</h1>
 			<p class="mb-4">
 				<button class="btn btn-primary btn-icon-split" id="write" >
 			  		<span class="text">매매일지 설명 보기</span>
@@ -69,47 +69,66 @@
 			                    </div>
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
-			                            <label class="control-label">매수일</label>
-			                            <input type="date" class="form-control" id="buying_day" value="" onchange="trading()" />
+			                            <label class="control-label">증권사 선택(PC)</label>
+			                            <select class="form-control" id="stockBuyFeePC" onchange="feeCheck()">
+			                            	<option value="">증권사 선택</option>
+			                            	<option value="키움">키움증권</option>
+			                            	<option value="미래에셋대우">미래에셋대우</option>
+			                            	<option value="KB투자">KB투자증권</option>
+			                            	<option value="삼성">삼성증권</option>
+			                            	<option value="대신">대신증권</option>
+			                            	<option value="교보">교보증권</option>
+			                            	<option value="한국투자">한국투자증권</option>
+			                            	<option value="나무">나무증권</option>
+			                            </select>
 			                        </div>
 			                    </div>
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
-			                            <label class="control-label">매도일</label>
-			                            <input type="date" class="form-control" id="sell_day" value="" onchange="trading()" />
+			                            <label class="control-label">증권사 선택(모바일)</label>
+			                            <select class="form-control" id="stockBuyFeeMo" onchange="feeCheck()">
+			                            	<option value="">증권사 선택</option>
+			                            	<option value="키움">키움증권</option>
+			                            	<option value="미래에셋대우">미래에셋대우</option>
+			                            	<option value="KB투자">KB투자증권</option>
+			                            	<option value="삼성">삼성증권</option>
+			                            	<option value="대신">대신증권</option>
+			                            	<option value="교보">교보증권</option>
+			                            	<option value="한국투자">한국투자증권</option>
+			                            	<option value="나무">나무증권</option>
+			                            </select>
 			                        </div>
-			                    </div>
-			                	<div class="col-md-2 col-lg-2">
-			                        <div class="form-group">
-			                            <label class="control-label">보유일</label>
-			                            <input type="text" class="form-control" id="hold_day" placeholder="자동계산"/>
-			                        </div>
-			                    </div>
-			                    
+			                    </div>                 
 			                </div>
 			                <div class="row">
 			                	<div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
-			                            <label class="control-label">보유수량</label>
-			                            <input type="text" class="form-control" id="hold_quantity" numberonly="true" placeholder="단위(주)" />
+			                            <label class="control-label">매수일</label>
+			                            <input type="date" class="form-control" id="buying_day" value="" onchange="trading()" />
+			                        </div>
+			                    </div>
+			                	<div class="col-md-2 col-lg-2">
+			                        <div class="form-group">
+			                            <label class="control-label">매수수량</label>
+			                            <input type="text" class="form-control" id="buy_quantity" numberonly="true" placeholder="단위(주)" onchange="priceCheck()" />
+			                        </div>
+			                    </div>	 
+			                	<div class="col-md-2 col-lg-2">
+			                        <div class="form-group">
+			                            <label class="control-label">매수단가</label>
+			                            <input type="text" class="form-control" id="buy_unit_price" numberonly="true" placeholder="단위(주)" onchange="priceCheck()" />
 			                        </div>
 			                    </div>	
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
-			                            <label class="control-label">매수가</label>
-			                            <input type="text" class="form-control" id="buy_price" numberonly="true" placeholder="단위(원)" />
+			                            <label class="control-label">매수 수수료</label>
+			                            <input type="text" class="form-control" id="buy_fees" numberonly="true" placeholder="단위(원)" readonly />
 			                        </div>
 			                    </div>
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
-			                            <label class="control-label">매도가</label>
-			                            <input type="text" class="form-control" id="sell_price" numberonly="true" placeholder="단위(원)" />
-			                        </div>
-			                    </div>
-			                    <div class="col-md-2 col-lg-3">
-			                        <div class="form-group">
-			                            <label class="control-label">손익금액</label>
-			                            <input type="text" class="form-control" id="pro_loss_price" numberonly="true" placeholder="단위(원)" />
+			                            <label class="control-label">매수금액</label>
+			                            <input type="text" class="form-control" id="buy_price" numberonly="true" placeholder="단위(원)" readonly />
 			                        </div>
 			                    </div>
 			                </div>
