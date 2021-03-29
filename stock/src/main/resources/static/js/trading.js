@@ -23,9 +23,9 @@
 	}
 */
 
-// 천 단위 콤마(sb-admin-2.js 의 함수가 호출이 안되 중복 선언)
+// 천 단위 콤마(2021.03.30) - 매수 수수료, 매수 금액 콤마 기능
 function addComma(data) {
-  return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // 증권사 별 매매수수료 계산(PC, Mo)
@@ -107,12 +107,13 @@ function priceCheck() {
     
     // 매수금액, 수수료 구하기
     if(qdd && udd && stockFeePC){
-		document.getElementById('buy_fees').value = parseInt(feeCheck(qdd * udd));
-		document.getElementById('buy_price').value = parseInt((qdd * udd) - feeCheck(qdd * udd));
+		document.getElementById('buy_fees').value = addComma(parseInt(feeCheck(qdd * udd)));
+		document.getElementById('buy_price').value = addComma(parseInt((qdd * udd) - feeCheck(qdd * udd)));
 	} else if (qdd && udd && stockFeeMo) {
-		document.getElementById('buy_fees').value = parseInt(feeCheck(qdd * udd));
-		document.getElementById('buy_price').value = parseInt((qdd * udd) - feeCheck(qdd * udd));
+		document.getElementById('buy_fees').value = addComma(parseInt(feeCheck(qdd * udd)));
+		document.getElementById('buy_price').value = addComma(parseInt((qdd * udd) - feeCheck(qdd * udd)));
 	} else {
+	    document.getElementById('buy_fees').value = 0;
 	    document.getElementById('buy_price').value = 0;
 	}
 }

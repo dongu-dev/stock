@@ -6,7 +6,7 @@
     $(this).val(addComma($(this).val().replace(/[^0-9]/gi,"")));
   });
   
-  // 천 단위 콤마(2020.09.29)
+  // 천 단위 콤마(2020.09.29) - 매수수량, 매수단가 콤마 기능
   function addComma(data) {
     return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }

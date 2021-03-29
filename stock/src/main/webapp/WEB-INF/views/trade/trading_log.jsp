@@ -122,13 +122,13 @@
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
 			                            <label class="control-label">매수 수수료</label>
-			                            <input type="text" class="form-control" id="buy_fees" numberonly="true" placeholder="단위(원)" readonly />
+			                            <input type="text" class="form-control" id="buy_fees"  placeholder="단위(원)" readonly />
 			                        </div>
 			                    </div>
 			                    <div class="col-md-2 col-lg-2">
 			                        <div class="form-group">
 			                            <label class="control-label">매수금액</label>
-			                            <input type="text" class="form-control" id="buy_price" numberonly="true" placeholder="단위(원)" readonly />
+			                            <input type="text" class="form-control" id="buy_price" placeholder="단위(원)" readonly />
 			                        </div>
 			                    </div>
 			                </div>
