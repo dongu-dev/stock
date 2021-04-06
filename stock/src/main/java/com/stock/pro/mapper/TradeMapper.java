@@ -9,7 +9,7 @@ import com.stock.pro.dto.TradeInfoDto;
 @Mapper
 public interface TradeMapper {
 	
-	int tradeInfoSave(TradeInfoDto tradeInfoDto);
+	int tradeInfoBuySave(TradeInfoDto tradeInfoDto);
 	
 	String tradeGetCode(String stockName);
 }

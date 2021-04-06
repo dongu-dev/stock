@@ -65,7 +65,7 @@
 	        	    <h6 class="collapse-header">꾸준한 수익을 목표로</h6>
 	    	   	       <a class="collapse-item" href="trading_notice">매매일지 공지사항</a>
 	    	   	       <a class="collapse-item" href="trading_log">매매일지 작성(매수)</a>
-	    	   	       <a class="collapse-item" href="trading_log">매매일지 작성(매도)</a>
+	    	   	       <a class="collapse-item" href="trading_sell_log">매매일지 작성(매도)</a>
 	      	 	       <a class="collapse-item" href="">매매일지 문의</a>
 	    	      </div>
 	   	        </div>

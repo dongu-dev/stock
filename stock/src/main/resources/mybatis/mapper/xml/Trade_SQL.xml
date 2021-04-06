@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.stock.pro.mapper.TradeMapper">
-    <insert id="tradeInfoSave" parameterType="com.stock.pro.dto.TradeInfoDto">
+    <insert id="tradeInfoBuySave" parameterType="com.stock.pro.dto.TradeInfoDto">
     	INSERT INTO
     			trade_info (
     					stock_title

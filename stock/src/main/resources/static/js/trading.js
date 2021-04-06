@@ -147,28 +147,36 @@ function stockTitle() {
 
 
 
-// 주식 정보 저장
-function tradeSave() {
+// 주식 정보 저장(매수)
+function tradeSave(arg) {
 	
-	let put_stockTitle = $('#stock_title').val();
-	let put_stockCode = $('#stock_code').val();
-	let put_buyingDay = $('#buying_day').val();
-	let put_buyQuantity = parseInt(removeComma($('#buy_quantity').val()));
-	let put_buy_unit_price = parseInt(removeComma($('#buy_unit_price').val()));
-	let put_buy_fees = parseInt(removeComma($('#buy_fees').val()));
-	let put_buy_price = parseInt(removeComma($('#buy_price').val()));
-	
-	alert(put_sellPrice);
-	alert(put_proLossPrice);
-	
+	//매수,매도 구분
+	if(arg==1) {
+		let put_stockTitle = $('#stock_title').val();
+		let put_stockCode = $('#stock_code').val();
+		let put_buyingDay = $('#buying_day').val();
+		let put_buyQuantity = parseInt(removeComma($('#buy_quantity').val()));
+		let put_buy_unit_price = parseInt(removeComma($('#buy_unit_price').val()));
+		let put_buy_fees = parseInt(removeComma($('#buy_fees').val()));
+		let put_buy_price = parseInt(removeComma($('#buy_price').val()));
+	} else if(arg==0) {
+		let put_stockTitle = $('#stock_title').val();
+		let put_stockCode = $('#stock_code').val();
+		let put_sellDay = $('#buying_day').val();
+		let put_sellQuantity = parseInt(removeComma($('#buy_quantity').val()));
+		let put_sell_unit_price = parseInt(removeComma($('#buy_unit_price').val()));
+		let put_sell_fees = parseInt(removeComma($('#buy_fees').val()));
+		let put_sell_price = parseInt(removeComma($('#buy_price').val()));
+	}
+
 	$.ajax({
-		url:'tradeInfoSave'
+		url:'tradeInfoBuySave'
 		, type:'POST'
 		, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , buyingDay: put_buyingDay , buyQuantity: put_buy_unit_price , buyUnitPrice: put_buy_unit_price , buyFees: put_buy_fees , buyPrice: put_buy_price}
 		, success: function(data){
 			if(data == 'success'){
 				alert("저장되었습니다.");
-				return false;
+				location.reload();
 			} else{
 				alert("정상적으로 처리되지 않았습니다.");
 			}

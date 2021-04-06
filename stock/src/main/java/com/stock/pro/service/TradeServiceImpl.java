@@ -13,9 +13,9 @@ public class TradeServiceImpl implements TradeService {
 	
 	// 주식정보저장
 	@Override
-	public int tradeInfoSave(TradeInfoDto tradeInfoDto) {
+	public int tradeInfoBuySave(TradeInfoDto tradeInfoDto) {
 		
-		int a = tradeMapper.tradeInfoSave(tradeInfoDto);
+		int a = tradeMapper.tradeInfoBuySave(tradeInfoDto);
 		
 		return a;
 	}

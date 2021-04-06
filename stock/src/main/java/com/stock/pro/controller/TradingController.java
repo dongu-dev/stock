@@ -15,11 +15,18 @@ public class TradingController {
 	@Autowired
 	private TradeServiceImpl tradeServiceImpl;
 	
-	// 매매일지 작성
+	// 매매일지 작성(매수)
 	@GetMapping(value="trading_log")
 	public String trading_log() {	
 		
 		return "trade/trading_log";
+	}
+	
+	// 매매일지 작성(매도)
+	@GetMapping(value="trading_sell_log")
+	public String trading_sell_log() {	
+		
+		return "trade/trading_sell_log";
 	}
 	
 	// 매매일지 문의
@@ -38,13 +45,13 @@ public class TradingController {
 	
 	// 주식정보값 등록
 	@ResponseBody
-	@PostMapping(value="tradeInfoSave")
-	public String tradeInfoSave(TradeInfoDto tradeInfoDto, HttpSession session) {	
+	@PostMapping(value="tradeInfoBuySave")
+	public String tradeInfoBuySave(TradeInfoDto tradeInfoDto, HttpSession session) {	
 		
 		String tradeId = (String) session.getAttribute("memberId");
 		tradeInfoDto.setTradeId(tradeId);
 		
-		int a = tradeServiceImpl.tradeInfoSave(tradeInfoDto);
+		int a = tradeServiceImpl.tradeInfoBuySave(tradeInfoDto);
 			
 		if(a == 1) {
 			return "success";

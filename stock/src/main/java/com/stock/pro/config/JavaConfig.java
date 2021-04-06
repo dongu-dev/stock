@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class JavaConfig extends WebSecurityConfigurerAdapter {
 	
+	// 단방향 암호화 필요한 객체 생성
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
