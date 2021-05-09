@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.stock.pro.dto.TradeInfoDto;
+import com.stock.pro.dto.TradeInfoSellDto;
 import com.stock.pro.service.TradeServiceImpl;
 
 @Controller
@@ -43,7 +44,7 @@ public class TradingController {
 		return "trade/trading_notice";
 	}
 	
-	// 주식정보값 등록
+	// 주식정보값 등록(매수)
 	@ResponseBody
 	@PostMapping(value="tradeInfoBuySave")
 	public String tradeInfoBuySave(TradeInfoDto tradeInfoDto, HttpSession session) {	
@@ -51,9 +52,26 @@ public class TradingController {
 		String tradeId = (String) session.getAttribute("memberId");
 		tradeInfoDto.setTradeId(tradeId);
 		
-		int a = tradeServiceImpl.tradeInfoBuySave(tradeInfoDto);
+		int result = tradeServiceImpl.tradeInfoBuySave(tradeInfoDto);
 			
-		if(a == 1) {
+		if(result == 1) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
+	// 주식정보값 등록(매도)
+	@ResponseBody
+	@PostMapping(value="tradeInfoSellSave")
+	public String tradeInfoSellSave(TradeInfoSellDto tradeInfoSellDto, HttpSession session) {	
+		
+		String tradeId = (String) session.getAttribute("memberId");
+		tradeInfoSellDto.setTradeId(tradeId);
+		
+		int result = tradeServiceImpl.tradeInfoSellSave(tradeInfoSellDto);
+			
+		if(result == 1) {
 			return "success";
 		} else {
 			return "fail";

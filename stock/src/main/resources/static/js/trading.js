@@ -146,8 +146,7 @@ function stockTitle() {
 }
 
 
-
-// 주식 정보 저장(매수)
+// 주식 정보 저장
 function tradeSave(arg) {
 	
 	//매수,매도 구분
@@ -159,27 +158,44 @@ function tradeSave(arg) {
 		let put_buy_unit_price = parseInt(removeComma($('#buy_unit_price').val()));
 		let put_buy_fees = parseInt(removeComma($('#buy_fees').val()));
 		let put_buy_price = parseInt(removeComma($('#buy_price').val()));
+		
+		$.ajax({
+			url:'tradeInfoBuySave'
+			, type:'POST'
+			, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , buyingDay: put_buyingDay , buyQuantity: put_buyQuantity , buyUnitPrice: put_buy_unit_price , buyFees: put_buy_fees , buyPrice: put_buy_price}
+			, success: function(data){
+				if(data == 'success'){
+					alert("저장되었습니다.");
+					location.reload();
+				} else{
+					alert("정상적으로 처리되지 않았습니다.");
+				}
+			}
+		})
 	} else if(arg==0) {
+		
 		let put_stockTitle = $('#stock_title').val();
 		let put_stockCode = $('#stock_code').val();
-		let put_sellDay = $('#buying_day').val();
-		let put_sellQuantity = parseInt(removeComma($('#buy_quantity').val()));
-		let put_sell_unit_price = parseInt(removeComma($('#buy_unit_price').val()));
-		let put_sell_fees = parseInt(removeComma($('#buy_fees').val()));
-		let put_sell_price = parseInt(removeComma($('#buy_price').val()));
+		let put_sellDay = $('#sell_day').val();
+		let put_sellQuantity = parseInt(removeComma($('#sell_quantity').val()));
+		let put_sell_unit_price = parseInt(removeComma($('#sell_unit_price').val()));
+		let put_sell_fees = parseInt(removeComma($('#sell_fees').val()));
+		let put_sell_price = parseInt(removeComma($('#sell_price').val()));
+		
+		$.ajax({
+			url:'tradeInfoSellSave'
+			, type:'POST'
+			, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , sellDay: put_sellDay , sellQuantity: put_sellQuantity , sellUnitPrice: put_sell_unit_price , sellFees: put_sell_fees , sellPrice: put_sell_price}
+			, success: function(data){
+				if(data == 'success'){
+					alert("저장되었습니다.");
+					location.reload();
+				} else{
+					alert("정상적으로 처리되지 않았습니다.");
+				}
+			}
+		})
 	}
 
-	$.ajax({
-		url:'tradeInfoBuySave'
-		, type:'POST'
-		, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , buyingDay: put_buyingDay , buyQuantity: put_buy_unit_price , buyUnitPrice: put_buy_unit_price , buyFees: put_buy_fees , buyPrice: put_buy_price}
-		, success: function(data){
-			if(data == 'success'){
-				alert("저장되었습니다.");
-				location.reload();
-			} else{
-				alert("정상적으로 처리되지 않았습니다.");
-			}
-		}
-	})
+	
 }
