@@ -7,7 +7,7 @@
 
 package com.stock.pro.controller;
 
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stock.pro.dto.AdminDto;
+import com.stock.pro.entity.NoticeInfo;
 import com.stock.pro.service.AdminServiceImpl;
 
 @Controller
@@ -25,8 +26,22 @@ public class AdminController {
 	@Autowired
 	private AdminServiceImpl adminServiceImpl;
 	
-	// 공지사항 관리 페이지 호출
+	// 공지사항 관리 페이지 호출(JPA)
 	@GetMapping(value="notice_management")
+	public ModelAndView notice_management() {	
+		
+		ModelAndView mv = new ModelAndView();
+		
+		List<NoticeInfo> noticeInfo = adminServiceImpl.notice_list();
+		
+		mv.setViewName("admin/notice_management");
+		mv.addObject("noticeInfo", noticeInfo);
+		
+		return mv;
+	}
+	
+	// 공지사항 관리 페이지 호출
+	/*@GetMapping(value="notice_management")
 	public ModelAndView notice_management() {	
 		
 		ModelAndView mv = new ModelAndView();
@@ -43,7 +58,7 @@ public class AdminController {
 		mv.addObject("noticeList", noticeListMap.get("noticeList"));
 		
 		return mv;
-	}
+	}*/
 
 	// 공지사항 등록 페이지 호출
 	@GetMapping(value="notice_registration")

@@ -162,7 +162,15 @@ function tradeSave(arg) {
 		$.ajax({
 			url:'tradeInfoBuySave'
 			, type:'POST'
-			, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , buyingDay: put_buyingDay , buyQuantity: put_buyQuantity , buyUnitPrice: put_buy_unit_price , buyFees: put_buy_fees , buyPrice: put_buy_price}
+			, data:{
+					 stockTitle: put_stockTitle 
+					 , stockCode: put_stockCode 
+					 , buyingDay: put_buyingDay 
+					 , buyQuantity: put_buyQuantity
+					 , buyUnitPrice: put_buy_unit_price 
+					 , buyFees: put_buy_fees 
+					 , buyPrice: put_buy_price
+					 }
 			, success: function(data){
 				if(data == 'success'){
 					alert("저장되었습니다.");
@@ -185,7 +193,15 @@ function tradeSave(arg) {
 		$.ajax({
 			url:'tradeInfoSellSave'
 			, type:'POST'
-			, data:{stockTitle: put_stockTitle , stockCode: put_stockCode , sellDay: put_sellDay , sellQuantity: put_sellQuantity , sellUnitPrice: put_sell_unit_price , sellFees: put_sell_fees , sellPrice: put_sell_price}
+			, data:{	
+					stockTitle: put_stockTitle 
+					, stockCode: put_stockCode 
+					, sellDay: put_sellDay 
+					, sellQuantity: put_sellQuantity 
+					, sellUnitPrice: put_sell_unit_price 
+					, sellFees: put_sell_fees 
+					, sellPrice: put_sell_price
+					}
 			, success: function(data){
 				if(data == 'success'){
 					alert("저장되었습니다.");

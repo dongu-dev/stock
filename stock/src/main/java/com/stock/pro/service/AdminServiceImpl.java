@@ -16,25 +16,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stock.pro.dto.AdminDto;
+import com.stock.pro.entity.NoticeInfo;
 import com.stock.pro.mapper.AdminMapper;
+import com.stock.pro.repository.NoticeRepository;
 
 @Service
 @Transactional
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	private AdminMapper adminMapper;
 	
+	@Autowired
+	private NoticeRepository noticeRepository;
+	
 	// 공지 리스트
 	@Override
-	public Map<String, Object> notice_list() throws Exception {
+	public List<NoticeInfo> notice_list() {
 		
-		Map<String, Object> noticeListMap = new HashMap<String, Object> ();
-		List<AdminDto> noticeList = adminMapper.notice_list();
+		List<NoticeInfo> noticeInfo = noticeRepository.findAll();
 		
-		noticeListMap.put("noticeList", noticeList);
-		
-		return noticeListMap;
+		return noticeInfo;	
 	}
 	
 	// 공지사항 등록 기능

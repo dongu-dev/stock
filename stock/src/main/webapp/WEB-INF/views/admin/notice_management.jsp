@@ -69,14 +69,14 @@
 	                    </tr>
 	                  </thead>
 	                  <tbody>
-	                    <c:forEach var="notice" items="${noticeList}">
-								<tr>
-									<td>${notice.notice_title}</td>
-									<td>${notice.notice_contents}</td>
-									<td>${notice.select_count}</td>
-									<td>${notice.regist_date}</td>
-								</tr>
-							</c:forEach>
+	                    <c:forEach var="notice" items="${noticeInfo}">
+							<tr>
+								<td>${notice.notice_title}</td>
+								<td>${notice.notice_contents}</td>
+								<td>${notice.select_count}</td>
+								<td>${notice.regist_date}</td>
+							</tr>
+						</c:forEach>
 	                  </tbody>
 	                </table>
 	              </div>
