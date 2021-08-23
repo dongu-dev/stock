@@ -49,23 +49,16 @@
 					<button class="btn btn-primary btn-icon-split" id="write" >
 			           	<span class="text ">글쓰기</span>
 			        </button>
-			        &ensp;
-			        <button class="btn btn-warning btn-icon-split" id="update">
-			         	<span class="text ">수정</span>
-			        </button>
-			        &ensp;
-			        <button class="btn btn-danger btn-icon-split" id="delete">
-			           	<span class="text ">삭제</span>
-			        </button>
 			        <br><br>
 				    <div class="table-responsive">
 	                <table class="table table-bordered" id="dataTable" width="100%">
 	                  <thead>
 	                    <tr>
 	                      <th style="width: 60%">제목</th>
-	                      <th style="width: 15%">작성자</th>
+	                      <th style="width: 10%">작성자</th>
 	                      <th style="width: 10%">조회수</th>
-	                      <th style="width: 20%">등록날짜</th>
+	                      <th style="width: 10%">등록날짜</th>
+	                      <th style="width: 10%" colspan="2">수정 및 등록</th>
 	                    </tr>
 	                  </thead>
 	                  <tbody>
@@ -75,6 +68,16 @@
 								<td>${notice.notice_contents}</td>
 								<td>${notice.select_count}</td>
 								<td>${notice.regist_date}</td>
+								<td>
+									<button class="btn btn-warning btn-icon-split" id="update">
+										<span class="text ">수정</span>
+									</button>
+								</td>
+								<td>
+									<button class="btn btn-danger btn-icon-split" id="delete">
+										<span class="text ">삭제</span>
+									</button>
+								</td>
 							</tr>
 						</c:forEach>
 	                  </tbody>

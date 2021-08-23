@@ -18,4 +18,5 @@ $(document).ready(function(){
 		location.href="notice_registration";
 	});
 	
+	
 });

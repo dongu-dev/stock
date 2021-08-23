@@ -7,25 +7,19 @@
 
 package com.stock.pro.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stock.pro.dto.AdminDto;
 import com.stock.pro.entity.NoticeInfo;
-import com.stock.pro.mapper.AdminMapper;
 import com.stock.pro.repository.NoticeRepository;
 
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
-	
-	@Autowired
-	private AdminMapper adminMapper;
 	
 	@Autowired
 	private NoticeRepository noticeRepository;
@@ -40,8 +34,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	// 공지사항 등록 기능
+	@Test
 	@Override
-	public void notice_regist(AdminDto adminDto) throws Exception {
-		adminMapper.notice_regist(adminDto);
+	public void notice_regist(NoticeInfo noticeInfo) throws Exception {
+		noticeRepository.save(noticeInfo);
 	}
+	
 }

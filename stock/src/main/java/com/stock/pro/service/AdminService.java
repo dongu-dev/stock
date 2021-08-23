@@ -8,8 +8,6 @@
 package com.stock.pro.service;
 
 import java.util.List;
-import java.util.Map;
-import com.stock.pro.dto.AdminDto;
 import com.stock.pro.entity.NoticeInfo;
 
 public interface AdminService {
@@ -18,5 +16,5 @@ public interface AdminService {
 	public List<NoticeInfo> notice_list() throws Exception;
 	
 	// 공지사항 등록 기능
-	public void notice_regist(AdminDto adminDto) throws Exception;
+	public void notice_regist(NoticeInfo noticeInfo) throws Exception;
 }
