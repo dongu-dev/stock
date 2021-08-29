@@ -1,5 +1,8 @@
 package com.stock.pro.service;
 
-public class IndexService {
+import com.stock.pro.dto.TotalInfoDto;
 
+public interface IndexService {
+	
+	public TotalInfoDto totalInfo() throws Exception;;
 }

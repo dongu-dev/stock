@@ -7,6 +7,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +17,8 @@
 	 	<meta name="description" content="">
 	 	<meta name="author" content="">
 		<title>메인 페이지</title>
+		
+		<script src="resources/js/index.js"></script>
 		
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
@@ -46,9 +49,9 @@
 		                <div class="card-body">
 		                  <div class="row no-gutters align-items-center">
 		                    <div class="col mr-2">
-		                      <div class="font-weight-bold text-primary text-uppercase mb-1">종목 손익 조회</div>
+		                      <div class="font-weight-bold text-primary text-uppercase mb-1">총 손익 조회</div>
 		                      
-		                      <div class="h5 mb-0 font-weight-bold text-gray-800">₩ 40,000</div>
+		                      <div class="h5 mb-0 font-weight-bold text-gray-800"><fmt:formatNumber value="${totalList.totalPrice}" pattern="#,###"/> 원</div>
 		                    </div>
 		                    <div class="col-auto">
 		                      <i class="fas fa-won-sign fa-2x text-gray-300"></i>
@@ -65,7 +68,7 @@
 		                  <div class="row no-gutters align-items-center">
 		                    <div class="col mr-2">
 		                      <div class="font-weight-bold text-success text-uppercase mb-1">총 매매횟수</div>
-		                      <div class="h5 mb-0 font-weight-bold text-gray-800">10 회</div>
+		                      <div class="h5 mb-0 font-weight-bold text-gray-800">${totalList.count} 회</div>
 		                    </div>
 		                  </div>
 		                </div>
@@ -80,7 +83,7 @@
 		                      <div class="font-weight-bold text-info text-uppercase mb-1">총 누적된 투자금액</div>
 		                      <div class="row no-gutters align-items-center">
 		                        <div class="col-auto">
-		                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">₩ 100,000</div>
+		                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><fmt:formatNumber value="${totalList.investAmount}" pattern="#,###"/> 원</div>
 		                        </div>
 		                      </div>
  		                    </div>
@@ -99,7 +102,7 @@
 		                  <div class="row no-gutters align-items-center">
 		                    <div class="col mr-2">
 		                      <div class="font-weight-bold text-warning text-uppercase mb-1">마지막 매수 또는 매도일</div>
-		                      <div class="h5 mb-0 font-weight-bold text-gray-800">2020년 9월 17일</div>
+		                      <div class="h5 mb-0 font-weight-bold text-gray-800">${totalList.buyingDay}</div>
 		                    </div>
 		                    <div class="col-auto">
 		                      <i class="fas fa-comments fa-2x text-gray-300"></i>

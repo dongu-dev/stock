@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stock.pro.mapper.IndexMapper"> 
+    <select id="totalInfo" resultType="com.stock.pro.dto.TotalInfoDto">
+    	select 
+			count(*) as count
+			, max(buying_day) as buyingDay
+			, (select sum(buy_price) from trade_info) - (select sum(sell_price) from trade_info_sell) as totalPrice
+			, (select sum(buy_price) from trade_info) as investAmount
+		from (
+			select * from trade_info ti
+			union
+			select * from trade_info_sell tis
+		) tia
+    </select>
+</mapper>   
